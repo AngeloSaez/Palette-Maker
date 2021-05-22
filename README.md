@@ -4,8 +4,8 @@
 
 Generates palettes in a simple and visual way. Afterwards exports it to your desktop as an image.
 
-![palette-0](https://user-images.githubusercontent.com/64299151/119223554-23b19c00-bac8-11eb-8fa1-14ab80a8fae3.png)
 ![palette-0](https://user-images.githubusercontent.com/64299151/119223643-90c53180-bac8-11eb-855d-722fd91bca39.png)
+![palette-0](https://user-images.githubusercontent.com/64299151/119223554-23b19c00-bac8-11eb-8fa1-14ab80a8fae3.png)
 ![palette-0](https://user-images.githubusercontent.com/64299151/119223604-5f4c6600-bac8-11eb-8e6d-73cdf8ccc4eb.png)
 
 ## Controls:
