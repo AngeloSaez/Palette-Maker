@@ -723,14 +723,22 @@ public class Application {
 		}
 		
 		try {
-			File output;
-			File path = new File(System.getProperty("user.home") + "/Desktop/palettes/");
-			if (path.exists() && path.isDirectory()) {
-				output = new File(System.getProperty("user.home") + "/Desktop/palettes/" + "" + "palette-0.png");
+			String outputDirectory;
+			File directoryPath = new File(System.getProperty("user.home") + "/Desktop/palettes/");
+			if (directoryPath.exists() && directoryPath.isDirectory()) {
+				outputDirectory = System.getProperty("user.home") + "/Desktop/palettes/";
 			} else {
-				output = new File(System.getProperty("user.home") + "/Desktop/" + "" + "palette-0.png");
+				outputDirectory = System.getProperty("user.home") + "/Desktop/";
 			}
-			ImageIO.write(image, "png", output);
+			String fileName;
+			File filePath;
+			int paletteNum = 0;
+			do {
+				fileName = "palette_" + paletteNum + ".png";
+				filePath = new File(outputDirectory + fileName);
+				paletteNum++;
+			} while (filePath.exists());
+			ImageIO.write(image, "png", filePath);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
