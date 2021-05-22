@@ -3,6 +3,7 @@
 # Palette-Maker
 
 Generates palettes in a simple and visual way. Afterwards exports it to your desktop as an image. Don't forget to read the controls.
+Windows Download: https://jello3899.itch.io/palette-maker?secret=6nMBWHR5nh21jfZi84gEsnTwil4
 
 ## Some examples:
 ![palette-0](https://user-images.githubusercontent.com/64299151/119223643-90c53180-bac8-11eb-855d-722fd91bca39.png)
