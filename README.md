@@ -1,13 +1,20 @@
-![Logo](https://user-images.githubusercontent.com/64299151/119222908-9caef480-bac4-11eb-9424-a311824cd0a1.png)
+![Logo](https://user-images.githubusercontent.com/64299151/119223353-ef89ab80-bac6-11eb-9857-4d597798e79e.png)
 # Palette-Maker
 Palette Maker
 
+
 Generates palettes in a simple and visual way. Afterwards exports it to your desktop as an image.
+
+
+
 
 Controls:
   - Use Left / Right arrows to increase / decrease choices respectively
   - Use Up / Down arrows at pretty much any time to offset hues
   - Use Enter to submit your choices and progress process. On the last step it exports the image and closes the program.
+
+
+
 
 Palette Generation Pipeline:
 1. Pick hue derivation method
@@ -18,6 +25,10 @@ Palette Generation Pipeline:
 6 Adjust tint
 7 Pick render style
 8 Export
+
+
+
+
 
 Summary of each step:
 1. Pick hue derivation method
