@@ -716,7 +716,7 @@ public class Application {
 				int yOff = j * res;
 				for (int y = 0; y < res; y++) {
 					for (int x = 0; x < res; x++) {
-						image.setRGB(xOff + x, yOff + y, finalColors[j][i].getRGB());
+						image.setRGB(xOff + x, height - (yOff + y) - 1, finalColors[j][i].getRGB());
 					}
 				}
 			}
