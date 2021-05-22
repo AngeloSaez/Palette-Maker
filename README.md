@@ -5,13 +5,14 @@
 Generates palettes in a simple and visual way. Afterwards exports it to your desktop as an image.
 
 ![palette-0](https://user-images.githubusercontent.com/64299151/119223554-23b19c00-bac8-11eb-8fa1-14ab80a8fae3.png)
+![palette-0](https://user-images.githubusercontent.com/64299151/119223643-90c53180-bac8-11eb-855d-722fd91bca39.png)
+![palette-0](https://user-images.githubusercontent.com/64299151/119223604-5f4c6600-bac8-11eb-8e6d-73cdf8ccc4eb.png)
 
 ## Controls:
   - Use Left / Right arrows to increase / decrease choices respectively
   - Use Up / Down arrows at pretty much any time to offset hues
   - Use Enter to submit your choices and progress process. On the last step it exports the image and closes the program.
 
-![palette-0](https://user-images.githubusercontent.com/64299151/119223643-90c53180-bac8-11eb-855d-722fd91bca39.png)
 
 ## Palette Creation Pipeline:
 1. Pick hue derivation method
@@ -23,7 +24,6 @@ Generates palettes in a simple and visual way. Afterwards exports it to your des
 7. Pick render style
 8. Export
 
-![palette-0](https://user-images.githubusercontent.com/64299151/119223604-5f4c6600-bac8-11eb-8e6d-73cdf8ccc4eb.png)
 
 ## Pipeline summary:
 1. Pick hue derivation method
