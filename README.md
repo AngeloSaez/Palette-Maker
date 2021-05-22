@@ -16,13 +16,13 @@ Controls:
 
 Palette Generation Pipeline:
 1. Pick hue derivation method
-2 Pick hue count
-3 Pick swatch/value count
-4 Adjust saturation
-5 Adjust brightness
-6 Adjust tint
-7 Pick render style
-8 Export
+2. Pick hue count
+3. Pick swatch/value count
+4. Adjust saturation
+5. Adjust brightness
+6. Adjust tint
+7. Pick render style
+8. Export
 
 ![palette-0](https://user-images.githubusercontent.com/64299151/119223604-5f4c6600-bac8-11eb-8e6d-73cdf8ccc4eb.png)
 
