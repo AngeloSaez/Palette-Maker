@@ -51,6 +51,9 @@ public class Application {
 		BASIC,
 		PAIRWISE_GRADIENT,
 		INVERSE_PAIRWISE_GRADIENT,
+		PAIRWISE_GRADIENT_DEGREE_2,
+		PAIRWISE_GRADIENT_DEGREE_3,
+		PAIRWISE_GRADIENT_DEGREE_4,
 	}
 	
 	///////////////////////////////////////////////////////////////////////////////
@@ -575,7 +578,6 @@ public class Application {
 					}
 				}
 				break;
-				
 			case INVERSE_PAIRWISE_GRADIENT:
 				// By values
 				gradientStep = 1.0 / valueIDs.length;
@@ -594,6 +596,81 @@ public class Application {
 						int wr = (int) ((double) (currentColor.getRed() * gradient) + (double) (nextColor.getRed() * invGradient));
 						int wg = (int) ((double) (currentColor.getGreen() * gradient) + (double) (nextColor.getGreen() * invGradient));
 						int wb = (int) ((double) (currentColor.getBlue() * gradient) + (double) (nextColor.getBlue() * invGradient));
+						g.setColor(new Color (wr, wg, wb));
+						g.fillRect(SCREEN.width / 2 - offset + i * res, SCREEN.height / 2 + individualVerticalOffset + verticalOffset, res, res);
+					}
+				}
+				break;
+			case PAIRWISE_GRADIENT_DEGREE_2:
+				// By values
+				gradientStep = 1.0 / valueIDs.length;
+				for (int j = 0; j < valueIDs.length; j++) {
+					int verticalOffset = valueCount * res / 2;
+					int individualVerticalOffset = -j * res;
+					// By hues
+					int offset = hues.length * res / 2;
+					for (int i = 0; i < hues.length; i++) {
+						int nextIndex = (i == hues.length - 1) ? 0 : i + 1;
+						int nextNextIndex = (nextIndex == hues.length - 1) ? 0 : nextIndex + 1;
+						Color currentColor = rawColors[j][i];
+						Color nextNextColor = rawColors[j][nextNextIndex];
+						// Take weighted average of each color
+						double gradient = gradientStep * j + gradientStep / 2.0;
+						double invGradient = 1 - gradient;
+						int wr = (int) ((double) (currentColor.getRed() * gradient) + (double) (nextNextColor.getRed() * invGradient));
+						int wg = (int) ((double) (currentColor.getGreen() * gradient) + (double) (nextNextColor.getGreen() * invGradient));
+						int wb = (int) ((double) (currentColor.getBlue() * gradient) + (double) (nextNextColor.getBlue() * invGradient));
+						g.setColor(new Color (wr, wg, wb));
+						g.fillRect(SCREEN.width / 2 - offset + i * res, SCREEN.height / 2 + individualVerticalOffset + verticalOffset, res, res);
+					}
+				}
+				break;
+			case PAIRWISE_GRADIENT_DEGREE_3:
+				// By values
+				gradientStep = 1.0 / valueIDs.length;
+				for (int j = 0; j < valueIDs.length; j++) {
+					int verticalOffset = valueCount * res / 2;
+					int individualVerticalOffset = -j * res;
+					// By hues
+					int offset = hues.length * res / 2;
+					for (int i = 0; i < hues.length; i++) {
+						int nextIndex = (i == hues.length - 1) ? 0 : i + 1;
+						int nextNextIndex = (nextIndex == hues.length - 1) ? 0 : nextIndex + 1;
+						int nextNextNextIndex = (nextNextIndex == hues.length - 1) ? 0 : nextNextIndex + 1;
+						Color currentColor = rawColors[j][i];
+						Color nextNextNextColor = rawColors[j][nextNextNextIndex];
+						// Take weighted average of each color
+						double gradient = gradientStep * j + gradientStep / 2.0;
+						double invGradient = 1 - gradient;
+						int wr = (int) ((double) (currentColor.getRed() * gradient) + (double) (nextNextNextColor.getRed() * invGradient));
+						int wg = (int) ((double) (currentColor.getGreen() * gradient) + (double) (nextNextNextColor.getGreen() * invGradient));
+						int wb = (int) ((double) (currentColor.getBlue() * gradient) + (double) (nextNextNextColor.getBlue() * invGradient));
+						g.setColor(new Color (wr, wg, wb));
+						g.fillRect(SCREEN.width / 2 - offset + i * res, SCREEN.height / 2 + individualVerticalOffset + verticalOffset, res, res);
+					}
+				}
+				break;
+			case PAIRWISE_GRADIENT_DEGREE_4:
+				// By values
+				gradientStep = 1.0 / valueIDs.length;
+				for (int j = 0; j < valueIDs.length; j++) {
+					int verticalOffset = valueCount * res / 2;
+					int individualVerticalOffset = -j * res;
+					// By hues
+					int offset = hues.length * res / 2;
+					for (int i = 0; i < hues.length; i++) {
+						int nextIndex = (i == hues.length - 1) ? 0 : i + 1;
+						int nextNextIndex = (nextIndex == hues.length - 1) ? 0 : nextIndex + 1;
+						int nextNextNextIndex = (nextNextIndex == hues.length - 1) ? 0 : nextNextIndex + 1;
+						int nextNextNextNextIndex = (nextNextNextIndex == hues.length - 1) ? 0 : nextNextNextIndex + 1;
+						Color currentColor = rawColors[j][i];
+						Color nextNextNextNextColor = rawColors[j][nextNextNextNextIndex];
+						// Take weighted average of each color
+						double gradient = gradientStep * j + gradientStep / 2.0;
+						double invGradient = 1 - gradient;
+						int wr = (int) ((double) (currentColor.getRed() * gradient) + (double) (nextNextNextNextColor.getRed() * invGradient));
+						int wg = (int) ((double) (currentColor.getGreen() * gradient) + (double) (nextNextNextNextColor.getGreen() * invGradient));
+						int wb = (int) ((double) (currentColor.getBlue() * gradient) + (double) (nextNextNextNextColor.getBlue() * invGradient));
 						g.setColor(new Color (wr, wg, wb));
 						g.fillRect(SCREEN.width / 2 - offset + i * res, SCREEN.height / 2 + individualVerticalOffset + verticalOffset, res, res);
 					}
@@ -840,6 +917,69 @@ public class Application {
 					int wr = (int) ((double) (currentColor.getRed() * gradient) + (double) (nextColor.getRed() * invGradient));
 					int wg = (int) ((double) (currentColor.getGreen() * gradient) + (double) (nextColor.getGreen() * invGradient));
 					int wb = (int) ((double) (currentColor.getBlue() * gradient) + (double) (nextColor.getBlue() * invGradient));
+					finalColors[j][i] = new Color (wr, wg, wb);
+				}
+			}
+			break;
+		case PAIRWISE_GRADIENT_DEGREE_2:
+			// By values
+			gradientStep = 1.0 / valueIDs.length;
+			for (int j = 0; j < valueIDs.length; j++) {
+				// By hues
+				for (int i = 0; i < hues.length; i++) {
+					int nextIndex = (i == hues.length - 1) ? 0 : i + 1;
+					int nextNextIndex = (nextIndex == hues.length - 1) ? 0 : nextIndex + 1;
+					Color currentColor = rawColors[j][i];
+					Color nextNextColor = rawColors[j][nextNextIndex];
+					// Take weighted average of each color
+					double gradient = gradientStep * j + gradientStep / 2.0;
+					double invGradient = 1 - gradient;
+					int wr = (int) ((double) (currentColor.getRed() * gradient) + (double) (nextNextColor.getRed() * invGradient));
+					int wg = (int) ((double) (currentColor.getGreen() * gradient) + (double) (nextNextColor.getGreen() * invGradient));
+					int wb = (int) ((double) (currentColor.getBlue() * gradient) + (double) (nextNextColor.getBlue() * invGradient));
+					finalColors[j][i] = new Color (wr, wg, wb);
+				}
+			}
+			break;
+		case PAIRWISE_GRADIENT_DEGREE_3:
+			// By values
+			gradientStep = 1.0 / valueIDs.length;
+			for (int j = 0; j < valueIDs.length; j++) {
+				// By hues
+				for (int i = 0; i < hues.length; i++) {
+					int nextIndex = (i == hues.length - 1) ? 0 : i + 1;
+					int nextNextIndex = (nextIndex == hues.length - 1) ? 0 : nextIndex + 1;
+					int nextNextNextIndex = (nextNextIndex == hues.length - 1) ? 0 : nextNextIndex + 1;
+					Color currentColor = rawColors[j][i];
+					Color nextNextNextColor = rawColors[j][nextNextNextIndex];
+					// Take weighted average of each color
+					double gradient = gradientStep * j + gradientStep / 2.0;
+					double invGradient = 1 - gradient;
+					int wr = (int) ((double) (currentColor.getRed() * gradient) + (double) (nextNextNextColor.getRed() * invGradient));
+					int wg = (int) ((double) (currentColor.getGreen() * gradient) + (double) (nextNextNextColor.getGreen() * invGradient));
+					int wb = (int) ((double) (currentColor.getBlue() * gradient) + (double) (nextNextNextColor.getBlue() * invGradient));
+					finalColors[j][i] = new Color (wr, wg, wb);
+				}
+			}
+			break;
+		case PAIRWISE_GRADIENT_DEGREE_4:
+			// By values
+			gradientStep = 1.0 / valueIDs.length;
+			for (int j = 0; j < valueIDs.length; j++) {
+				// By hues
+				for (int i = 0; i < hues.length; i++) {
+					int nextIndex = (i == hues.length - 1) ? 0 : i + 1;
+					int nextNextIndex = (nextIndex == hues.length - 1) ? 0 : nextIndex + 1;
+					int nextNextNextIndex = (nextNextIndex == hues.length - 1) ? 0 : nextNextIndex + 1;
+					int nextNextNextNextIndex = (nextNextNextIndex == hues.length - 1) ? 0 : nextNextNextIndex + 1;
+					Color currentColor = rawColors[j][i];
+					Color nextNextNextNextColor = rawColors[j][nextNextNextNextIndex];
+					// Take weighted average of each color
+					double gradient = gradientStep * j + gradientStep / 2.0;
+					double invGradient = 1 - gradient;
+					int wr = (int) ((double) (currentColor.getRed() * gradient) + (double) (nextNextNextNextColor.getRed() * invGradient));
+					int wg = (int) ((double) (currentColor.getGreen() * gradient) + (double) (nextNextNextNextColor.getGreen() * invGradient));
+					int wb = (int) ((double) (currentColor.getBlue() * gradient) + (double) (nextNextNextNextColor.getBlue() * invGradient));
 					finalColors[j][i] = new Color (wr, wg, wb);
 				}
 			}
